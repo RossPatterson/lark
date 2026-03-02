@@ -137,6 +137,7 @@ class UnexpectedInput(LarkError):
         return candidate[0]
 
     def _format_expected(self, expected):
+        expected = sorted(expected)
         if self._terminals_by_name:
             d = self._terminals_by_name
             expected = [d[t_name].user_repr() if t_name in d else t_name for t_name in expected]
